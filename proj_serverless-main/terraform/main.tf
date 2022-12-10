@@ -10,18 +10,6 @@ resource "aws_s3_bucket_acl" "bucket75911" {
 resource "aws_s3_object" "bucket75911" {
   bucket = aws_s3_bucket.bucket75911.id
   key    = var.objectKey
-  # source = "./www/"
-
-  # The filemd5() function is available in Terraform 0.11.12 and later
-  # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
-  # etag = "${md5(file("path/to/file"))}"
-  # etag = filemd5(aws_s3_object.bucket75911.source)
-}
-
-#resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
-#  bucket = aws_s3_bucket.bucket75911.id
-#  policy = data.aws_iam_policy_document.allow_access_from_another_account.json
-#}
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
   bucket = aws_s3_bucket.bucket75911.id
